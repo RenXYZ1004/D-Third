@@ -1,12 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function InquiryForm({ contactEmail }) {
   const [status, setStatus] = useState("");
   const [hasError, setHasError] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const recipient = encodeURIComponent(typeof contactEmail === "string" ? contactEmail.trim() : "")
     .replace(/%40/gi, "@");
+
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -33,7 +38,7 @@ export default function InquiryForm({ contactEmail }) {
   }
 
   return (
-    <form className="inquiry-form reveal" action={`mailto:${recipient}`} method="post" encType="text/plain" onSubmit={handleSubmit}>
+    <form className="inquiry-form reveal" method="post" onSubmit={handleSubmit}>
       <label htmlFor="inquiry-name">Your name</label>
       <input id="inquiry-name" name="name" autoComplete="name" maxLength={120} required />
 
@@ -43,7 +48,7 @@ export default function InquiryForm({ contactEmail }) {
       <label htmlFor="inquiry-message">A little about the project</label>
       <textarea id="inquiry-message" name="message" rows={3} maxLength={1000} required />
 
-      <button className="submit-link" type="submit">Prepare an inquiry <span aria-hidden="true">↗</span></button>
+      <button className="submit-link" type="submit" disabled={!isReady}>Prepare an inquiry <span aria-hidden="true">↗</span></button>
       <p
         className={`form-status${hasError ? " is-error" : ""}`}
         role={hasError ? "alert" : "status"}
@@ -51,6 +56,13 @@ export default function InquiryForm({ contactEmail }) {
       >
         {status}
       </p>
+      <noscript>
+        <p className="form-status">
+          JavaScript is needed to prepare this form. {recipient
+            ? <a href={`mailto:${recipient}`}>Email directly instead.</a>
+            : "Please connect an inquiry email to enable direct contact."}
+        </p>
+      </noscript>
     </form>
   );
 }
