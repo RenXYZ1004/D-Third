@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 64 64" role="img">
+  <title>D’THIRD chrome inspired D and III monogram</title>
+  <defs>
+    <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".2" stop-color="#c9cdd4"/>
+      <stop offset=".38" stop-color="#747c87"/>
+      <stop offset=".54" stop-color="#f7f8fa"/>
+      <stop offset=".76" stop-color="#aeb4bd"/>
+      <stop offset="1" stop-color="#eef0f4"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".48" stop-color="#59616d"/>
+      <stop offset="1" stop-color="#e2e5e9"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#101114"/>
+  <path d="M10 9h22c14 0 23 8.8 23 23S46 55 32 55H10l5-7h17c9 0 14-5.5 14-16S41 16 32 16H15z" fill="url(#chrome)" stroke="#08090b" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M11 10h20.5c12.4 0 20.2 7.9 20.2 22s-7.8 22-20.2 22H12" fill="none" stroke="url(#edge)" stroke-width="1" opacity=".82"/>
+  <path d="M25 23v18m6-18v18m6-18v18" stroke="#20242a" stroke-width="2.2" stroke-linecap="square"/>
+  <path d="M26 24v16m6-16v16m6-16v16" stroke="#f6f7f9" stroke-width=".8" stroke-linecap="square" opacity=".82"/>
+  <path d="m49 42 3-3-1.8 6.4-2.6 1.1z" fill="#ad5036"/>
+</svg>
