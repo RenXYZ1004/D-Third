@@ -126,7 +126,6 @@ export function SiteFooter() {
         </nav>
       </div>
       <div className="footer-bottom">
-        <span>Made with feeling, frame by frame.</span>
         <span className="footer-year">© {new Date().getFullYear()} D’THIRD</span>
       </div>
     </footer>

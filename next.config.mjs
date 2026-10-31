@@ -1,5 +1,7 @@
 const nextConfig = {
   poweredByHeader: false,
+  trailingSlash: false,
+  productionBrowserSourceMaps: false,
   images: {
     formats: ["image/webp"],
   },

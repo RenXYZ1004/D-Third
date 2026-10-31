@@ -36,7 +36,7 @@ export default function HomePage() {
           </div>
           <div className="identity-panel">
             <div className="identity-top reveal">
-              <p className="eyebrow"><span className="eyebrow-mark" /> Videographer / Visual storyteller</p>
+              <p className="eyebrow"><span className="eyebrow-mark" /> D’Third Bautista / Videographer &amp; Visual storyteller</p>
               <h1 className="wordmark hero-wordmark" id="hero-title">D’THIRD<span className="wordmark-period">.</span></h1>
               <p className="hero-line">Every frame<br />tells a story.</p>
             </div>
@@ -122,7 +122,7 @@ export default function HomePage() {
             <p className="eyebrow eyebrow-light reveal"><span className="eyebrow-mark" /> The approach</p>
             <h2 className="reveal" id="approach-title">The best stories<br />feel <em>like you.</em></h2>
             <div className="approach-lower reveal">
-              <p>From the first conversation to the final cut, the aim is simple: make something honest, considered, and worth returning to.</p>
+              <p>D’Third Bautista creates wedding films and visual stories through D’Third Bautista Captured. From the first conversation to the final cut, each film is made to feel honest, considered, and worth returning to.</p>
               <span className="approach-services">FILM&nbsp; · &nbsp;EDIT&nbsp; · &nbsp;STORY</span>
             </div>
           </div>

@@ -1276,7 +1276,7 @@ textarea {
 }
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 20px;
   padding-top: 17px;
   border-top: 1px solid var(--rule);

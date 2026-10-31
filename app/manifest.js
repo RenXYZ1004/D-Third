@@ -1,8 +1,8 @@
 export default function manifest() {
   return {
-    name: "D’THIRD — Visual Stories",
+    name: "D’Third Bautista Captured",
     short_name: "D’THIRD",
-    description: "Independent films and visual stories by D’THIRD.",
+    description: "Wedding films and visual stories by videographer D’Third Bautista.",
     start_url: "/",
     display: "standalone",
     background_color: "#f7f6f2",

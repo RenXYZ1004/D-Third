@@ -15,18 +15,18 @@ function safeExternalUrl(value) {
 
 export const metadata = {
   title: "Credentials",
-  description: "Selected portfolio work and a growing archive of D’THIRD certificates and professional credentials.",
+  description: "Selected wedding films, portfolio work, and professional credentials by D’Third Bautista of D’Third Bautista Captured.",
   ...(siteConfig.siteUrl ? { alternates: { canonical: "/credentials" } } : {}),
   openGraph: {
-    title: "Credentials | D’THIRD",
-    description: "Selected portfolio work and a growing archive of D’THIRD certificates and professional credentials.",
+    title: "Credentials | D’Third Bautista Captured",
+    description: "Selected wedding films, portfolio work, and professional credentials by D’Third Bautista of D’Third Bautista Captured.",
     ...(siteConfig.siteUrl ? { url: `${siteConfig.siteUrl}/credentials` } : {}),
-    images: [{
-      url: "/images/dthird-social.webp",
+    ...(siteConfig.siteUrl ? { images: [{
+      url: `${siteConfig.siteUrl}/images/dthird-social.webp`,
       width: 1200,
       height: 630,
-      alt: "D’THIRD independent filmmaker and visual storyteller",
-    }],
+      alt: "D’Third Bautista, videographer behind D’Third Bautista Captured",
+    }] } : {}),
   },
 };
 
