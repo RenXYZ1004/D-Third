@@ -1,5 +1,6 @@
 import "./globals.css";
 import { siteConfig } from "../lib/site-config.js";
+import NetworkStatus from "./network-status.jsx";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -70,6 +71,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
+        <NetworkStatus />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeOrganizationSchema }}

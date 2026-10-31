@@ -134,6 +134,32 @@ textarea {
 .skip-link:focus {
   transform: translateY(0);
 }
+.network-status {
+  position: fixed;
+  z-index: 80;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(440px, calc(100vw - 28px));
+  padding: 12px 16px;
+  color: var(--paper-light);
+  background: var(--ink);
+  box-shadow: 0 8px 28px rgba(23, 23, 21, 0.18);
+  font-size: 10px;
+  line-height: 1.5;
+}
+.network-status-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #c47b62;
+}
+.network-status.is-restored .network-status-dot {
+  background: #a7bd91;
+}
 .site-header {
   height: 76px;
   padding: 0 5.4vw;
@@ -935,6 +961,51 @@ textarea {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.gallery-feature-state {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 20px;
+  color: var(--paper-light);
+  background: rgba(23, 23, 21, 0.84);
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+.gallery-feature-state.is-loading {
+  background: rgba(23, 23, 21, 0.56);
+}
+.gallery-feature-state.is-loading::before {
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(247, 246, 242, 0.35);
+  border-top-color: var(--paper-light);
+  border-radius: 50%;
+  content: "";
+  animation: state-spinner 0.9s linear infinite;
+}
+@keyframes state-spinner {
+  to { transform: rotate(360deg); }
+}
+.gallery-feature-state button {
+  padding: 8px 12px;
+  color: var(--paper-light);
+  background: transparent;
+  border: 1px solid rgba(247, 246, 242, 0.5);
+  cursor: pointer;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.gallery-feature-state button:hover {
+  border-color: var(--paper-light);
 }
 .wedding-gallery-feature figcaption {
   position: absolute;

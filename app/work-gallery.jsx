@@ -5,6 +5,8 @@ import { useEffect, useId, useRef, useState } from "react";
 
 export default function WorkGallery({ item }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [featureState, setFeatureState] = useState("loading");
+  const [featureRetry, setFeatureRetry] = useState(0);
   const dialogTitleId = useId();
   const dialogRef = useRef(null);
   const galleryPhotos = Array.isArray(item.gallery) ? item.gallery : [];
@@ -19,6 +21,13 @@ export default function WorkGallery({ item }) {
 
     if (isOpen && !dialog.open) dialog.showModal();
     if (!isOpen && dialog.open) dialog.close();
+
+    if (isOpen) {
+      const featureImage = dialog.querySelector(".wedding-gallery-feature img");
+      if (featureImage?.complete) {
+        setFeatureState(featureImage.naturalWidth > 0 ? "loaded" : "error");
+      }
+    }
   }, [isOpen]);
 
   return (
@@ -91,7 +100,34 @@ export default function WorkGallery({ item }) {
             ))}
             <span className="wedding-gallery-stage-shade" aria-hidden="true" />
             <figure className="wedding-gallery-feature">
-              <Image src={photos[0].image} alt={photos[0].alt} fill sizes="(max-width: 760px) 80vw, 56vw" />
+              <Image
+                key={featureRetry}
+                src={photos[0].image}
+                alt={photos[0].alt}
+                fill
+                sizes="(max-width: 760px) 80vw, 56vw"
+                onLoad={() => setFeatureState("loaded")}
+                onError={() => setFeatureState("error")}
+              />
+              {featureState === "loading" && (
+                <span className="gallery-feature-state is-loading" role="status">
+                  Loading photograph…
+                </span>
+              )}
+              {featureState === "error" && (
+                <div className="gallery-feature-state is-error" role="alert">
+                  <span>This photograph couldn’t load. Check your connection and try again.</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFeatureState("loading");
+                      setFeatureRetry((attempt) => attempt + 1);
+                    }}
+                  >
+                    Try again
+                  </button>
+                </div>
+              )}
               <figcaption>
                 <span>01 / {String(photos.length).padStart(2, "0")}</span>
                 <span>{photos[0].alt}</span>

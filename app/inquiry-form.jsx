@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function InquiryForm({ contactEmail }) {
   const [status, setStatus] = useState("");
   const [hasError, setHasError] = useState(false);
+  const [mailPrepared, setMailPrepared] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const recipient = encodeURIComponent(typeof contactEmail === "string" ? contactEmail.trim() : "")
     .replace(/%40/gi, "@");
@@ -18,6 +19,7 @@ export default function InquiryForm({ contactEmail }) {
     if (!recipient) {
       setStatus("Inquiry email isn’t connected yet. Add your address to contactEmail in lib/site-config.js.");
       setHasError(true);
+      setMailPrepared(false);
       return;
     }
 
@@ -28,6 +30,7 @@ export default function InquiryForm({ contactEmail }) {
     if (!name || !email || !message) {
       setStatus("Please complete each field before preparing your inquiry.");
       setHasError(true);
+      setMailPrepared(false);
       return;
     }
     const subject = `Project inquiry from ${name}`;
@@ -35,6 +38,7 @@ export default function InquiryForm({ contactEmail }) {
     window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setStatus("Your email app should open with the inquiry ready to send.");
     setHasError(false);
+    setMailPrepared(true);
   }
 
   return (
@@ -54,7 +58,7 @@ export default function InquiryForm({ contactEmail }) {
         role={hasError ? "alert" : "status"}
         aria-live={hasError ? "assertive" : "polite"}
       >
-        {status}
+        {status}{mailPrepared && recipient && <> <a href={`mailto:${recipient}`}>If it didn’t open, try this email link.</a></>}
       </p>
       <noscript>
         <p className="form-status">
