@@ -119,6 +119,9 @@ export function SiteFooter() {
 
         <nav className="footer-navigation" aria-label="Footer navigation">
           <Link className="footer-credentials" href="/credentials">Portfolio &amp; credentials</Link>
+          <Link className="footer-credentials" href="/terms">Terms of service</Link>
+          <Link className="footer-credentials" href="/privacy">Privacy policy</Link>
+          <Link className="footer-credentials" href="/cookies">Cookie policy</Link>
           <Link className="back-to-top" href="/#top">Back to top ↑</Link>
         </nav>
       </div>
